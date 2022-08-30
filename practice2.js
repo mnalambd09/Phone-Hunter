@@ -7,9 +7,16 @@ const loadPhone = async(search) =>{
 
 const displayPhone = (phones) => {
     const phoneDiv = document.getElementById('phoneSection');
+    phones = phones.slice(0, 20);
+    const noPhone = document.getElementById('phone-result');
+    if(phones.length === 0){
+        noPhone.classList.remove('d-none');
+    }
+    else{
+        noPhone.classList.add('d-none');
+    }
     phoneDiv.textContent = '';
     phones.forEach(phone => {
-        console.log(phone)
         const creatDiv = document.createElement('div');
         creatDiv.classList.add('col');
         creatDiv.innerHTML = `
@@ -31,6 +38,7 @@ document.getElementById('Search-btn').addEventListener('click', function(){
     loadPhone(inputFieldText);
     inputField.value = '';
 })
+
 
 
 loadPhone();
