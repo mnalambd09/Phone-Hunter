@@ -6,7 +6,15 @@ const loadPhone = async(search) => {
 }
 
 const displayPhone = (phones) => {
+    phones = phones.slice(0, );
     const addPhone = document.getElementById('addPhone');
+    const searchResult = document.getElementById('d-none');
+    if(phones.length === 0){
+        searchResult.classList.remove('d-none');
+    }
+    else{
+        searchResult.classList.add('d-none');
+    }
     addPhone.textContent = '';
     console.log(phones);
     phones.forEach(phone => {
